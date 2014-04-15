@@ -9,12 +9,17 @@ exports.add = function(req, res){
 /*
  * GET users listing.
  */
-exports.list = function(req, res){
-  res.send("respond with a resource");
+exports.users = function(db) {
+  return function(req, res){
+
+    db.collection('users').find().toArray(function (err, items) {
+      res.json(items);
+    });
+  }
 };
 
 /*
- * GET add user.
+ * UPDATE user.
  */
 exports.update = function(req, res){
   res.send("respond with a resource");
@@ -22,7 +27,7 @@ exports.update = function(req, res){
 
 
 /*
- * GET delete user.
+ * DELETE user.
  */
 exports.delete = function(req, res){
   res.send("respond with a resource");

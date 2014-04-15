@@ -34,7 +34,7 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.post('/add', user.add); // Create
-app.get('/users', user.list); // Read
+app.get('/users', user.users(db)); // Read
 app.post('/update', user.update); // Update
 app.delete('/delete/:id', user.delete); // Delete
 
