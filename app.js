@@ -29,7 +29,10 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/users', user.list);
+app.post('/add', user.add); // Create
+app.get('/users', user.list); // Read
+app.post('/update', user.update); // Update
+app.delete('/delete/:id', user.delete); // Delete
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
