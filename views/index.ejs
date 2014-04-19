@@ -3,21 +3,73 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <table id="users">
-      <thead>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Email</th>
-        <th>Phone</th>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
+    <h1 class="node-header">Nodebook <small>The address book built on top of Node.js and Bootstrap</small></h1>
+    <div class="panel">
+      <table id="users" class="table table-striped table-hover">
+        <thead>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Email</th>
+          <th>Phone</th>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      <div class="panel-footer">
+
+      <div class="text-right">
+        <button type="button" class="btn btn-default">Edit</button>
+        <button type="button" class="btn btn-default">Delete</button>
+        <button type="button" class="btn btn-default">New</button>
+      </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-body">
+        <form role="form">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="first">First name</label>
+                <input type="text" class="form-control" id="first" placeholder="Enter first name">
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="form-group">
+                <label for="last">Last name</label>
+                <input type="text" class="form-control" id="last" placeholder="Enter last name">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="phone">Phone number</label>
+                <input type="tel" class="form-control" id="phone" placeholder="Enter phone number">
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email">
+              </div>
+            </div>
+          </div>
+          <div class="text-right">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="reset" class="btn btn-default">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
     <script src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
     <script src='/javascripts/global.js'></script>
+    <script src='/javascripts/bootstrap.min.js'></script>
   </body>
 </html>

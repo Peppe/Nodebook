@@ -23,6 +23,6 @@ function populateTable(){
 
 function select(event){
   console.log('changing selection');
-  $('.selected').removeClass('selected')
-  $(this).addClass('selected');
+  $('.info').removeClass('info')
+  $(this).addClass('info');
 }
