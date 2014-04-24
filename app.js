@@ -5,7 +5,7 @@
 
 var express = require('express');
 var routes = require('./routes');
-var user = require('./routes/user');
+var book = require('./routes/book');
 var http = require('http');
 var path = require('path');
 
@@ -33,10 +33,10 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.post('/add', user.add(db)); // Create
-app.get('/users', user.users(db)); // Read
-app.post('/update', user.update); // Update
-app.delete('/delete/:id', user.delete); // Delete
+app.post('/add', book.add(db)); // Create
+app.get('/users', book.users(db)); // Read
+app.post('/update', book.update); // Update
+app.delete('/delete/:id', book.delete); // Delete
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
