@@ -1,23 +1,24 @@
 
+var currentPerson = null;
 // DOM ready
 $(document).ready(function() {
     populateTable();
-    $('#users tbody').delegate('tr', 'click', select);
+    $('#persons tbody').delegate('tr', 'click', select);
     $('#button-add-user').on('click', addUser);
 });
 
 function populateTable(){
   var tableContent = '';
   console.log('adding rows to table')
-  $.getJSON('/users', function(data){
+  $.getJSON('/persons', function(data){
     $.each(data, function(){
-      tableContent += '<tr>';
+      tableContent += '<tr rel="'+ this._id + '">';
       tableContent += '<td>' + this.first + '</td>';
       tableContent += '<td>' + this.last + '</td>';
       tableContent += '<td>' + this.email + '</td>';
       tableContent += '<td>' + this.phone + '</td>';
       tableContent += '</tr>';
-      $('#users tbody').html(tableContent);
+      $('#persons tbody').html(tableContent);
     });
   });
 }
@@ -26,6 +27,7 @@ function select(event){
   console.log('changing selection');
   $('.info').removeClass('info')
   $(this).addClass('info');
+  currentPerson = $(this).attr('rel');
 }
 
 function addUser(event){
