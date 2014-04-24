@@ -7,6 +7,7 @@ $(document).ready(function() {
     $('#persons tbody').delegate('tr', 'click', select);
     $('#button-add-user').on('click', addUser);
     $('#button-delete-person').on('click', deletePerson);
+    $('#button-new-person').on('click', newPerson);
 
 });
 
@@ -111,4 +112,15 @@ function deletePerson(event){
       alert('Error: ' + response.msg);
     }
   });
+}
+
+function newPerson(event){
+  event.preventDefault();
+  currentPerson = null;
+  $('.info').removeClass('info')
+  $('#form-add-user input#first').val('');
+  $('#form-add-user input#last').val('');
+  $('#form-add-user input#phone').val('');
+  $('#form-add-user input#email').val('');
+  $('#form-add-user input#first').focus();
 }
