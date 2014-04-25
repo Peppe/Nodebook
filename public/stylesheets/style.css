@@ -1,16 +1,3 @@
 body {
   padding:20px;
 }
-
-.node-header {
-  /*color: #dddddd;*/
-  /*text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;*/
-}
-
-a {
-  color: #00B7FF;
-}
-
-.selected {
-  background-color: blue;
-}
