@@ -17,7 +17,6 @@ function populateTable(){
   $.getJSON('/persons', function(data){
     persons = data;
     $.each(data, function(){
-      console.log("id: " + this._id);
       tableContent += '<tr rel="'+ this._id + '">';
       tableContent += '<td>' + this.first + '</td>';
       tableContent += '<td>' + this.last + '</td>';
@@ -47,8 +46,6 @@ function select(event){
 
 function addUser(event){
   event.preventDefault();
-  console.log('add user clicked');
-
   var error = false;
   $('#form-add-user input').each(function(index, val) {
     if($(this).val()) {
@@ -59,8 +56,6 @@ function addUser(event){
     }
   });
   if(!error){
-    console.log('sending message');
-
     var user = {
       'first': $('#form-add-user input#first').val(),
       'last': $('#form-add-user input#last').val(),
@@ -78,37 +73,28 @@ function addUser(event){
       url: restMethod,
       dataType: 'JSON'
     }).done(function( response ) {
-      console.log('message sent');
       if (response.msg === '') {
-        console.log('message sent successfully');
         $('#form-add-user fieldset input').val('');
         populateTable();
       }
       else {
-        console.log('message failed');
         alert('Error: ' + response.msg);
       }
     });
-  } else {
-    console.log('ERROR!1');
   }
 }
 
 function deletePerson(event){
   event.preventDefault();
-  console.log('delete user clicked');
   $.ajax({
     type: 'DELETE',
     url: '/delete/'+currentPerson,
     dataType: 'JSON'
   }).done(function( response ) {
-    console.log('message sent');
     if (response.msg === '') {
-      console.log('message sent successfully');
       populateTable();
     }
     else {
-      console.log('message failed');
       alert('Error: ' + response.msg);
     }
   });
