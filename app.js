@@ -34,7 +34,7 @@ if ('development' == app.get('env')) {
 app.post('/add', book.add(db)); // Create
 app.get('/persons', book.users(db)); // Read
 app.post('/update', book.update(db)); // Update
-app.post('/delete/:id', book.delete(db)); // Delete
+app.delete('/delete/:id', book.delete(db)); // Delete
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

@@ -98,7 +98,7 @@ function deletePerson(event){
   event.preventDefault();
   console.log('delete user clicked');
   $.ajax({
-    type: 'POST',
+    type: 'DELETE',
     url: '/delete/'+currentPerson,
     dataType: 'JSON'
   }).done(function( response ) {
