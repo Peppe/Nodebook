@@ -1,6 +1,0 @@
-db.users.insert({
- "first" : "Jens",
- "last" : "Jansson",
- "email" : "jj@vaadin.com",
- "phone" : "+358 40 9876 5432",
-})
