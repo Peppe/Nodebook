@@ -32,7 +32,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
+/*app.get('/', routes.index); */
 app.post('/add', book.add(db)); // Create
 app.get('/persons', book.users(db)); // Read
 app.post('/update', book.update(db)); // Update
