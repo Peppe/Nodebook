@@ -4,11 +4,11 @@ Nodebook
 A REST backend for an address book implemented in node.js. It serves the front end from a static folder, which is just HTML+CSS+JS. Frontend uses JQuery and Twitter Bootstrap.
 
 Routes
-GET / (root): The frontend for using the app.
-GET /persons: REST call to retreive all persons.
-POST /add: REST call to add one person
-POST /update: REST call to update one person
-DELETE /delete/:id: REST call to delete one person based on the id
+* GET / (root): The frontend for using the app.
+* GET /persons: REST call to retreive all persons.
+* POST /add: REST call to add one person
+* POST /update: REST call to update one person
+* DELETE /delete/:id: REST call to delete one person based on the id
 
 Setup.
 
