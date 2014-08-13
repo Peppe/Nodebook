@@ -7,6 +7,10 @@ var express = require('express');
 var book = require('./routes/book');
 var http = require('http');
 var path = require('path');
+var morgan  = require('morgan') // logger
+var bodyParser = require('body-parser')
+var errorhandler = require('errorhandler')
+var methodOverride = require('method-override')
 
 // Database
 var mongo = require('mongoskin');
@@ -18,17 +22,15 @@ var app = express();
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded());
-app.use(express.methodOverride());
-app.use(app.router);
+app.use(morgan('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+if (process.env.NODE_ENV === 'development') {
+  app.use(errorhandler())
 }
 
 app.post('/add', book.add(db)); // Create
